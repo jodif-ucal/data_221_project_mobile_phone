@@ -15,3 +15,20 @@ features_train, features_test, labels_train, labels_test = train_test_split(
 )
 
 
+#Standardising the matrix
+#Looping through each column
+for column in feature_matrix:
+
+    #Checking what the maximum value of a column is --- if it's greater than 1 (non-binary feature) then
+    # standardise the column
+    if feature_matrix[column].max() > 1:
+
+        #Getting the mean of the column
+        mu = feature_matrix[column].mean()
+
+        #Getting the standard deviation of the column
+        sigma = feature_matrix[column].std()
+
+        #Standardising the column using ((column - mean) / standard deviation)
+        feature_matrix[column] = (feature_matrix[column] - mu) / sigma
+
