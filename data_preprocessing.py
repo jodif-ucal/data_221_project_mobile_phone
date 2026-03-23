@@ -32,3 +32,14 @@ for column in feature_matrix:
         #Standardising the column using ((column - mean) / standard deviation)
         feature_matrix[column] = (feature_matrix[column] - mu) / sigma
 
+def main():
+    #value_counts() will show the counts of each label
+    #They are all perfectly each 500 across the dataset
+    print(labels.value_counts())
+
+    #The following commands will do the same thing for the training and testing set
+    print(np.unique(labels_train, return_counts=True))
+    print(np.unique(labels_test, return_counts=True))
+
+if __name__ == "__main__":
+    main()
