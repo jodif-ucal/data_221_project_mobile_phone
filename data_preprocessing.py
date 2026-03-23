@@ -32,14 +32,19 @@ for column in feature_matrix:
         #Standardising the column using ((column - mean) / standard deviation)
         feature_matrix[column] = (feature_matrix[column] - mu) / sigma
 
+#If this script is ran directly, the code in main will run
+#This is to prevent the print statements from running whenever the other notebooks take the training
+# and testing data from this script
 def main():
     #value_counts() will show the counts of each label
     #They are all perfectly each 500 across the dataset
-    print(labels.value_counts())
+    print("Occurrence of each label in the dataset", labels.value_counts())
 
     #The following commands will do the same thing for the training and testing set
-    print(np.unique(labels_train, return_counts=True))
-    print(np.unique(labels_test, return_counts=True))
+    print("Occurrence of each label in the training set", np.unique(labels_train, return_counts=True))
+    print("Occurrence of each label in the testing set", np.unique(labels_test, return_counts=True))
 
+#This block of code ensures that main() runs is this script is directly ran, and not when imported
+# as a module
 if __name__ == "__main__":
     main()
