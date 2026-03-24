@@ -9,12 +9,6 @@ mobile_prices_df = pd.read_csv("Data/mobile_phone_dataset.csv")
 feature_matrix = mobile_prices_df.drop(columns="price_range")
 labels = mobile_prices_df["price_range"]
 
-#Splitting the data into a training and testing set
-features_train, features_test, labels_train, labels_test = train_test_split(
-    feature_matrix, labels, test_size=0.25, random_state=42
-)
-
-
 #Standardising the matrix
 #Looping through each column
 for column in feature_matrix:
@@ -31,6 +25,11 @@ for column in feature_matrix:
 
         #Standardising the column using ((column - mean) / standard deviation)
         feature_matrix[column] = (feature_matrix[column] - mu) / sigma
+
+#Splitting the data into a training and testing set
+features_train, features_test, labels_train, labels_test = train_test_split(
+    feature_matrix, labels, test_size=0.25, random_state=42
+)
 
 #If this script is ran directly, the code in main will run
 #This is to prevent the print statements from running whenever the other notebooks take the training
