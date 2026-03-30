@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import os
+
+print(os.getcwd())
 
 #Importing the data from the csv file
 mobile_prices_df = pd.read_csv("Data/mobile_phone_dataset.csv")
@@ -35,6 +38,10 @@ features_train, features_test, labels_train, labels_test = train_test_split(
 #This is to prevent the print statements from running whenever the other notebooks take the training
 # and testing data from this script
 def main():
+    #Print the number of rows and columns from the training and testing features
+    print("Shape of training set:", features_train.shape)
+    print("Shape of testing set:", features_test.shape)
+
     #value_counts() will show the counts of each label
     #They are all perfectly each 500 across the dataset
     print("Occurrence of each label in the dataset", labels.value_counts())
