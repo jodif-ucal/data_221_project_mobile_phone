@@ -3,8 +3,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import os
 
-print(os.getcwd())
-
 #Importing the data from the csv file
 mobile_prices_df = pd.read_csv("Data/mobile_phone_dataset.csv")
 
